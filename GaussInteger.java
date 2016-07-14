@@ -3,15 +3,21 @@ package e1;
 public class GaussInteger {
 	private int real, imag;
 	
+	// default constructor in a way
 	GaussInteger() {
 		this.real = 0;
 		this.imag = 0;
 	}
 	
+	// my constructor, which allows for initilization of values
 	GaussInteger(int real, int imag) {
-		// your code goes here
+		// set the real component
+		this.real = real;
+		// set the imaginary component
+		this.imag = imag;
 	}
 	
+	// setters and getters for the instance variables
 	public int getReal() {
 		return real;
 	}
@@ -28,17 +34,29 @@ public class GaussInteger {
 		this.imag = imag;
 	}
 
-	// define and code the add method below
+	// returns the sum of operand and current GaussInteger
+	public GaussInteger add(GaussInteger operand) {
+		this.real += operand.real;
+		this.imag += operand.imag;
+		return this;
+	}
 	
-	// define and code the moduleSquared method below
+	// returns the sum of squares of real and imaginary parts
+	public Integer moduleSquared() {
+		int tempR = this.real ** 2;
+		int tempI = this.imag ** 2;
+		return tempR + tempI;
+	}
 	
-	// define and code the isInvertible method below
+	// returns invertibility
+	public boolean isInvertible() {
+		return 1 == this.moduleSquared();
+	}
 	
 	// Add the necessary formal parameter
-	public boolean equals() {
+	public boolean equals(GaussInteger other) {
 	   boolean result = true;
-	   // write code that assigns the correct value to result
-	   return result;
+	   return (this.real == other.real) && (this.imag == other.imag)
 	}
 	
 	public String toString() {
